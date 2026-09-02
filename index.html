@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Anan E Najeeb — Software Engineer, XML Programmer and Aspiring DevOps Engineer">
+<title>Anan E Najeeb | Software Engineer</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#05050a;
+  --bg2:#090a12;
+  --card:rgba(255,255,255,.055);
+  --card2:rgba(255,255,255,.025);
+  --text:#f6f7fb;
+  --muted:#9ca3b4;
+  --line:rgba(255,255,255,.10);
+  --purple:#8b5cf6;
+  --blue:#38bdf8;
+  --cyan:#22d3ee;
+  --pink:#ec4899;
+  --green:#34d399;
+  --max:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:50;
+  background:radial-gradient(500px circle at var(--mx,50%) var(--my,20%),rgba(139,92,246,.09),transparent 60%);
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),92%);margin:auto}
+section{padding:105px 0;position:relative}
+
+/* animated background */
+.bg-orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.18;pointer-events:none;z-index:-2}
+.orb1{width:420px;height:420px;background:var(--purple);top:5%;left:-170px;animation:float 12s ease-in-out infinite}
+.orb2{width:360px;height:360px;background:var(--blue);right:-130px;top:45%;animation:float 15s ease-in-out infinite reverse}
+.orb3{width:280px;height:280px;background:var(--pink);left:35%;bottom:-140px;animation:float 10s ease-in-out infinite}
+@keyframes float{50%{transform:translate(50px,-35px) scale(1.1)}}
+
+/* particles */
+#particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.particle{
+  position:absolute;width:2px;height:2px;border-radius:50%;
+  background:white;opacity:.45;animation:twinkle var(--d) ease-in-out infinite;
+}
+@keyframes twinkle{50%{opacity:.05;transform:scale(.2)}}
+
+/* navigation */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  background:rgba(5,5,10,.65);
+  backdrop-filter:blur(18px);
+}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:"Space Grotesk";font-weight:700;font-size:1.1rem;letter-spacing:.4px}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:27px;list-style:none;font-size:.9rem;color:#c6cad5}
+.nav-links a{transition:.25s}
+.nav-links a:hover{color:white;text-shadow:0 0 18px rgba(139,92,246,.8)}
+.menu{display:none}
+
+/* hero */
+.hero{min-height:100vh;display:grid;place-items:center;padding-top:120px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:65px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;padding:8px 13px;
+  border:1px solid rgba(139,92,246,.35);border-radius:999px;
+  background:rgba(139,92,246,.08);color:#d8caff;font-size:.78rem;font-weight:700;
+  margin-bottom:22px;box-shadow:0 0 30px rgba(139,92,246,.08);
+}
+.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green)}
+h1{
+  font-family:"Space Grotesk";font-size:clamp(3.1rem,7vw,6.6rem);
+  line-height:.96;letter-spacing:-4px;margin-bottom:22px;
+}
+.gradient{
+  background:linear-gradient(100deg,#fff 20%,#b79cff 48%,#59d7ff 75%,#fff);
+  background-size:250% auto;color:transparent;background-clip:text;
+  -webkit-background-clip:text;animation:shine 5s linear infinite;
+}
+@keyframes shine{to{background-position:250% center}}
+.hero h2{font-size:clamp(1.05rem,2vw,1.4rem);font-weight:600;color:#c5cad6;margin-bottom:20px}
+.hero p{max-width:700px;color:var(--muted);font-size:1.03rem}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  padding:12px 19px;border-radius:11px;border:1px solid var(--line);
+  display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.9rem;
+  transition:.3s;position:relative;overflow:hidden;
+}
+.btn:after{content:"";position:absolute;inset:-80%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:rotate(25deg) translateX(-80%);transition:.6s}
+.btn:hover:after{transform:rotate(25deg) translateX(80%)}
+.btn.primary{background:linear-gradient(110deg,#6d3df2,#a855f7);border-color:#986cff;box-shadow:0 0 30px rgba(139,92,246,.25)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(0,0,0,.25)}
+.hero-card{
+  min-height:430px;border:1px solid var(--line);border-radius:28px;
+  background:linear-gradient(145deg,rgba(139,92,246,.10),rgba(56,189,248,.035));
+  box-shadow:inset 0 1px rgba(255,255,255,.08),0 25px 80px rgba(0,0,0,.35);
+  position:relative;overflow:hidden;padding:28px;
+}
+.hero-card:before{
+  content:"";position:absolute;width:240px;height:240px;border:1px solid rgba(139,92,246,.35);
+  border-radius:50%;top:65px;left:50%;transform:translateX(-50%);
+  box-shadow:0 0 45px rgba(139,92,246,.12),inset 0 0 45px rgba(56,189,248,.05);
+  animation:spin 16s linear infinite;
+}
+.hero-card:after{
+  content:"";position:absolute;width:175px;height:175px;border:1px dashed rgba(56,189,248,.35);
+  border-radius:50%;top:98px;left:50%;transform:translateX(-50%);
+  animation:spin 10s linear infinite reverse;
+}
+@keyframes spin{to{transform:translateX(-50%) rotate(360deg)}}
+.code-window{
+  position:absolute;left:34px;right:34px;bottom:30px;
+  background:rgba(3,4,9,.88);border:1px solid var(--line);border-radius:16px;
+  padding:18px;font:12px/1.8 Consolas,monospace;color:#cdd4e4;box-shadow:0 15px 50px rgba(0,0,0,.4)
+}
+.code-window .purple{color:#b794ff}.code-window .cyan{color:#67e8f9}.code-window .green{color:#86efac}
+.code-title{display:flex;gap:6px;margin-bottom:10px}.code-title i{width:7px;height:7px;border-radius:50%;background:#555}
+
+/* sections */
+.section-label{font-size:.76rem;text-transform:uppercase;letter-spacing:2.5px;color:#a78bfa;font-weight:800;margin-bottom:10px}
+.section-title{font-family:"Space Grotesk";font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin-bottom:15px}
+.section-intro{color:var(--muted);max-width:760px;margin-bottom:35px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:20px;padding:27px;
+  box-shadow:0 15px 55px rgba(0,0,0,.15);transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(167,139,250,.35);box-shadow:0 20px 70px rgba(89,65,160,.12)}
+.card h3{font-size:1.16rem;margin-bottom:5px}
+.meta{color:#a78bfa;font-size:.84rem;font-weight:700;margin-bottom:15px}
+.muted{color:var(--muted)}
+.clean{padding-left:19px;color:var(--muted)}
+.clean li{margin:8px 0}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.skill-card{min-height:170px}
+.skill-icon{font-size:1.4rem;margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.tag{font-size:.76rem;padding:6px 9px;border:1px solid rgba(255,255,255,.09);border-radius:999px;color:#cdd2de;background:rgba(255,255,255,.035)}
+
+/* timeline */
+.timeline{position:relative;max-width:900px}
+.timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:1px;background:linear-gradient(var(--purple),transparent)}
+.timeline-item{position:relative;padding-left:38px;margin-bottom:25px}
+.timeline-item:before{
+  content:"";position:absolute;left:2px;top:29px;width:13px;height:13px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--purple);box-shadow:0 0 18px rgba(139,92,246,.75)
+}
+
+/* projects */
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.project-card{min-height:275px;position:relative;overflow:hidden}
+.project-card .number{position:absolute;right:20px;top:12px;font:700 4rem "Space Grotesk";color:rgba(255,255,255,.035)}
+.project-card h3{font-family:"Space Grotesk";font-size:1.35rem}
+.project-card p{color:var(--muted);margin:15px 0}
+
+/* devops journey */
+.journey{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.journey-step{
+  padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--card2);
+  position:relative;overflow:hidden;
+}
+.journey-step:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,var(--purple),var(--blue));transform:scaleX(0);transform-origin:left;transition:.5s}
+.journey-step:hover:after{transform:scaleX(1)}
+.step-num{font-size:.7rem;color:#a78bfa;font-weight:800;letter-spacing:1px}
+.journey-step h3{margin:7px 0 5px;font-size:1rem}
+.journey-step p{color:var(--muted);font-size:.83rem}
+
+/* education/contact */
+.contact{
+  text-align:center;border:1px solid var(--line);border-radius:25px;padding:55px 25px;
+  background:radial-gradient(circle at 50% 0%,rgba(139,92,246,.12),transparent 55%),var(--card);
+}
+.contact p{color:var(--muted);margin:10px auto 25px;max-width:650px}
+.contact-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:900px){
+  .hero-grid,.grid2,.project-grid{grid-template-columns:1fr}
+  .hero-card{min-height:370px}
+  .skills{grid-template-columns:1fr 1fr}
+  .journey{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}.menu{display:block}
+}
+@media(max-width:560px){
+  section{padding:75px 0}
+  h1{letter-spacing:-2px}
+  .skills,.journey{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .hero{min-height:92vh}
+}
+</style>
+</head>
+
+<body>
+<div id="particles"></div>
+<div class="bg-orb orb1"></div>
+<div class="bg-orb orb2"></div>
+<div class="bg-orb orb3"></div>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">ANAN<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#devops">DevOps</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <span class="menu">☰</span>
+  </div>
+</nav>
+
+<main id="home">
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="badge"><span class="dot"></span> Open to Software & DevOps Opportunities</div>
+      <h1><span class="gradient">ANAN E NAJEEB</span></h1>
+      <h2>Software Engineer <span style="color:#777">|</span> XML Programmer <span style="color:#777">|</span> Aspiring DevOps Engineer</h2>
+      <p>
+        Computer Science graduate with 1+ year of professional experience in XML-based
+        structured data processing, validation, troubleshooting and quality-focused workflows,
+        with hands-on training in Java Full Stack Development.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn primary" href="#projects">✦ Explore My Work</a>
+        <a class="btn" href="#contact">↗ Contact Me</a>
+        <a class="btn" href="https://www.linkedin.com/in/anan-e-najeeb/" target="_blank">in LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="hero-card reveal">
+      <div style="position:absolute;top:24px;left:25px;color:#a78bfa;font-size:.75rem;font-weight:800;letter-spacing:1.5px">ENGINEERING MODE</div>
+      <div style="position:absolute;top:23px;right:25px;color:#67e8f9;font-size:.72rem">● SYSTEM ONLINE</div>
+      <div class="code-window">
+        <div class="code-title"><i></i><i></i><i></i></div>
+        <div><span class="purple">const</span> developer = {</div>
+        <div>&nbsp;&nbsp;name: <span class="green">"Anan E Najeeb"</span>,</div>
+        <div>&nbsp;&nbsp;role: <span class="green">"Software Engineer"</span>,</div>
+        <div>&nbsp;&nbsp;focus: <span class="green">"DevOps & Cloud"</span>,</div>
+        <div>&nbsp;&nbsp;stack: [<span class="cyan">"Java", "Spring Boot", "SQL"</span>],</div>
+        <div>&nbsp;&nbsp;learning: [<span class="cyan">"Docker", "AWS", "CI/CD"</span>]</div>
+        <div>};</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-label">01 / About</div>
+    <h2 class="section-title">Building software. <br><span class="gradient">Learning infrastructure.</span></h2>
+    <p class="section-intro">A practical software engineering foundation with a clear direction toward DevOps and Cloud Engineering.</p>
+    <div class="grid2">
+      <div class="card reveal">
+        <h3>Professional Profile</h3>
+        <p class="muted" style="margin-top:14px">
+          I am a Computer Science graduate with professional experience as an XML Programmer
+          and training in Java Full Stack Development. I enjoy solving technical problems,
+          debugging issues, validating data and working with structured software workflows.
+        </p>
+        <p class="muted" style="margin-top:12px">
+          I am currently developing practical knowledge in Linux, networking, containers,
+          cloud computing, CI/CD, infrastructure as code and automation.
+        </p>
+      </div>
+      <div class="card reveal">
+        <h3>Career Direction</h3>
+        <ul class="clean" style="margin-top:14px">
+          <li>Transitioning toward DevOps and Cloud Engineering.</li>
+          <li>Building hands-on projects with modern infrastructure tools.</li>
+          <li>Interested in automation, reliability and scalable systems.</li>
+          <li>Open to junior software, backend, DevOps and cloud opportunities.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-label">02 / Experience</div>
+    <h2 class="section-title">Where I've worked</h2>
+    <p class="section-intro">Professional experience in structured data and software development.</p>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="card">
+          <h3>XML Programmer — Straive</h3>
+          <div class="meta">November 2025 – Present</div>
+          <ul class="clean">
+            <li>Process and transform XML-based structured data while maintaining accuracy and consistency.</li>
+            <li>Perform data validation, quality checks, troubleshooting and debugging of XML-related issues.</li>
+            <li>Analyze processing issues and implement corrective actions for accurate and timely deliverables.</li>
+            <li>Follow quality assurance and project workflow processes.</li>
+            <li>Collaborate with team members to resolve technical and processing issues and improve workflow efficiency.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="card">
+          <h3>Java Full Stack Development Intern — JSpiders, Kochi</h3>
+          <div class="meta">July 2024 – July 2025</div>
+          <ul class="clean">
+            <li>Developed Java application components using Core Java, Spring Boot, Spring MVC, Hibernate and Oracle SQL.</li>
+            <li>Applied OOP, DSA, DBMS, exception handling and debugging concepts.</li>
+            <li>Developed and tested backend functionality using REST API concepts and database integration.</li>
+            <li>Performed software testing, debugging and issue resolution to improve application reliability.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-label">03 / Technical Skills</div>
+    <h2 class="section-title">My toolkit</h2>
+    <p class="section-intro">Technologies from my current professional background and ongoing DevOps learning path.</p>
+    <div class="skills">
+      <div class="card skill-card reveal"><div class="skill-icon">☕</div><h3>Programming</h3><div class="tags"><span class="tag">Java</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">JavaScript</span><span class="tag">SQL</span></div></div>
+      <div class="card skill-card reveal"><div class="skill-icon">⚙</div><h3>Backend</h3><div class="tags"><span class="tag">Spring Boot</span><span class="tag">Spring MVC</span><span class="tag">Hibernate</span><span class="tag">REST APIs</span></div></div>
+      <div class="card skill-card reveal"><div class="skill-icon">◈</div><h3>Web & Data</h3><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">React.js</span><span class="tag">Bootstrap</span><span class="tag">XML</span><span class="tag">Oracle SQL</span></div></div>
+      <div class="card skill-card reveal"><div class="skill-icon">⌘</div><h3>Engineering</h3><div class="tags"><span class="tag">OOP</span><span class="tag">DSA</span><span class="tag">DBMS</span><span class="tag">Testing</span><span class="tag">Debugging</span><span class="tag">Agile</span></div></div>
+      <div class="card skill-card reveal"><div class="skill-icon">◉</div><h3>Tools</h3><div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Linux</span><span class="tag">Ubuntu</span><span class="tag">Eclipse</span><span class="tag">VS Code</span></div></div>
+      <div class="card skill-card reveal"><div class="skill-icon">∞</div><h3>DevOps — Learning</h3><div class="tags"><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">CI/CD</span><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-label">04 / Projects</div>
+    <h2 class="section-title">Things I've built</h2>
+    <p class="section-intro">Projects demonstrating problem solving, real-time processing and applied engineering.</p>
+    <div class="project-grid">
+      <article class="card project-card reveal">
+        <span class="number">01</span>
+        <div class="meta">AI • Computer Vision</div>
+        <h3>Gesture Glide</h3>
+        <p>AI-based hands-free cursor control system using computer vision and gesture recognition for real-time computer interaction.</p>
+        <ul class="clean"><li>Head-movement and eye-blink controls.</li><li>Focused on real-time processing and reliability.</li><li>Approximately 90% recognition accuracy during testing.</li></ul>
+        <div class="tags" style="margin-top:18px"><span class="tag">AI</span><span class="tag">Computer Vision</span><span class="tag">Real-time Processing</span></div>
+      </article>
+      <article class="card project-card reveal">
+        <span class="number">02</span>
+        <div class="meta">IoT • Monitoring</div>
+        <h3>Aqua Metrics</h3>
+        <p>IoT-based water leakage detection system using pressure sensors to identify abnormal pipeline pressure variations.</p>
+        <ul class="clean"><li>Automated alerts for potential leakage zones.</li><li>Real-time monitoring and analysis.</li><li>Designed for early leak detection and resource conservation.</li></ul>
+        <div class="tags" style="margin-top:18px"><span class="tag">IoT</span><span class="tag">Sensors</span><span class="tag">Monitoring</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="devops">
+  <div class="container">
+    <div class="section-label">05 / DevOps Journey</div>
+    <h2 class="section-title">From code to cloud.</h2>
+    <p class="section-intro">My current learning roadmap. These are areas I am actively learning rather than claiming as professional experience.</p>
+    <div class="journey">
+      <div class="journey-step reveal"><div class="step-num">01</div><h3>Linux</h3><p>CLI, files, permissions, processes and system fundamentals.</p></div>
+      <div class="journey-step reveal"><div class="step-num">02</div><h3>Networking</h3><p>TCP/IP, DNS, HTTP, ports and networking fundamentals.</p></div>
+      <div class="journey-step reveal"><div class="step-num">03</div><h3>Git & GitHub</h3><p>Version control, branches, collaboration and workflows.</p></div>
+      <div class="journey-step reveal"><div class="step-num">04</div><h3>Docker</h3><p>Images, containers, Dockerfiles and containerized applications.</p></div>
+      <div class="journey-step reveal"><div class="step-num">05</div><h3>AWS</h3><p>Cloud fundamentals, compute, storage, networking and IAM.</p></div>
+      <div class="journey-step reveal"><div class="step-num">06</div><h3>CI/CD</h3><p>GitHub Actions, Jenkins and automated delivery concepts.</p></div>
+      <div class="journey-step reveal"><div class="step-num">07</div><h3>Terraform</h3><p>Infrastructure as Code and repeatable infrastructure.</p></div>
+      <div class="journey-step reveal"><div class="step-num">08</div><h3>Kubernetes</h3><p>Containers, deployments, services and orchestration fundamentals.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">06 / Education</div>
+    <div class="card reveal" style="max-width:850px">
+      <h3>Bachelor of Technology — Computer Science and Engineering</h3>
+      <div class="meta">APJ Abdul Kalam Technological University • 2024</div>
+      <p class="muted">Computer Science and Engineering graduate with a foundation in software development and computer science fundamentals.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact reveal">
+      <div class="section-label">07 / Contact</div>
+      <h2 class="section-title">Let's build something.</h2>
+      <p>I'm open to software engineering, backend, DevOps and cloud-focused opportunities, especially with teams where I can learn and contribute.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:ananhashim24@gmail.com">✉ Email Me</a>
+        <a class="btn" href="https://www.linkedin.com/in/anan-e-najeeb/" target="_blank">in LinkedIn</a>
+        <a class="btn" href="tel:+919061512345">☎ +91 9061512345</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer style="padding:28px 0;border-top:1px solid var(--line);text-align:center;color:#73798a;font-size:.82rem">
+  © <span id="year"></span> Anan E Najeeb • Software Engineer | Aspiring DevOps Engineer
+</footer>
+
+<script>
+/* floating particles */
+const particleBox=document.getElementById('particles');
+for(let i=0;i<75;i++){
+  const p=document.createElement('span');
+  p.className='particle';
+  p.style.left=Math.random()*100+'%';
+  p.style.top=Math.random()*100+'%';
+  p.style.setProperty('--d',(3+Math.random()*6)+'s');
+  p.style.animationDelay=(-Math.random()*6)+'s';
+  particleBox.appendChild(p);
+}
+
+/* cursor light */
+document.addEventListener('mousemove',e=>{
+  document.body.style.setProperty('--mx',e.clientX+'px');
+  document.body.style.setProperty('--my',e.clientY+'px');
+});
+
+/* scroll reveal */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('show');
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
